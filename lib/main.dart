@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ExpenseCounter',
       theme: ThemeData(
+        useMaterial3: true,
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
       home: const Expenses(),
