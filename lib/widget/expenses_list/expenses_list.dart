@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:expense_traker/model/expense.dart';
 import 'package:expense_traker/widget/expenses_list/expenses_item.dart';
@@ -9,7 +8,7 @@ class ExpensesList extends StatelessWidget {
 
   final void Function(Expense exp) remouveExpese;
   final List<Expense> expenses;
-
+ 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -24,7 +23,10 @@ class ExpensesList extends StatelessWidget {
         onDismissed: (dir){
           remouveExpese(expenses[index]);
         },
-        child: ExpensesItem(expense: expenses[index]),
+        child: 
+            ExpensesItem(expense: expenses[index]),
+          
+        
       ),
     );
   }

@@ -2,9 +2,10 @@ import 'package:expense_traker/widget/expenses.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-var kColorScheme = ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 154, 58, 183));
+var kColorScheme = ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 49, 0, 102));
 
-var kDarkColorScheme = ColorScheme.fromSeed(brightness: Brightness.dark,seedColor: const Color.fromARGB(255, 0, 0, 0));
+var kDarkColorScheme = ColorScheme.fromSeed(brightness: Brightness.dark,seedColor: const Color.fromARGB(255, 49, 0, 102));
+
 void main() {
   runApp(const MyApp());
 }
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: kColorScheme,
-        scaffoldBackgroundColor: kColorScheme.onPrimaryContainer,
+        scaffoldBackgroundColor: kColorScheme.primaryContainer,
         appBarTheme: const AppBarTheme().copyWith(
           backgroundColor: kColorScheme.primaryContainer,
           foregroundColor: kColorScheme.onPrimaryContainer,
@@ -43,7 +44,8 @@ class MyApp extends StatelessWidget {
 
         textTheme: ThemeData().textTheme.copyWith(
             titleLarge: GoogleFonts.inter(fontSize: 40),
-            bodyMedium: GoogleFonts.inter(fontSize: 14,color: kColorScheme.onPrimaryContainer)
+            bodyMedium: GoogleFonts.inter(fontSize: 14,),
+  
         ),
       ),
       themeMode: ThemeMode.system,

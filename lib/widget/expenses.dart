@@ -1,4 +1,6 @@
+
 import 'package:expense_traker/model/expense.dart';
+import 'package:expense_traker/widget/chart/chart.dart';
 import 'package:expense_traker/widget/expenses_list/expenses_list.dart';
 import 'package:expense_traker/widget/new_expenses.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +53,7 @@ class _ExpensesState extends State<Expenses> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         persist: false,
-        content: const Text("data"),
+        content: Text('${expense.title} | ${expense.amount}\$ as been deleted'),
         duration: const Duration(seconds: 3),
         action: SnackBarAction(
           label: 'undo',
@@ -85,7 +87,7 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: Column(children: [Expanded(child: mainContent)]),
+      body: Column(children: [Chart(expense: _registeredExpenses,),Expanded(child: mainContent)]),
     );
   }
 }
