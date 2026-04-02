@@ -48,18 +48,28 @@ class _ExpensesState extends State<Expenses> {
       _registeredExpenses.remove(expense);
     });
     ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: const Text("data"),duration: const Duration(seconds: 3),action: SnackBarAction(label: 'undo', onPressed: (){
-      setState(() {
-        _registeredExpenses.insert(expenseIndex, expense);
-      });
-    }),));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        persist: false,
+        content: const Text("data"),
+        duration: const Duration(seconds: 3),
+        action: SnackBarAction(
+          label: 'undo',
+          onPressed: () {
+            setState(() {
+              _registeredExpenses.insert(expenseIndex, expense);
+            });
+          },
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget mainContent = const Center(child: Text("No Expenses found!"));
+    Widget mainContent = Center(
+      child: Text("No Expenses found!"),
+    );
 
     if (_registeredExpenses.isNotEmpty) {
       mainContent = ExpensesList(_removeExpense, expenses: _registeredExpenses);
